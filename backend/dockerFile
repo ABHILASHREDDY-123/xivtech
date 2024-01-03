@@ -2,6 +2,7 @@ FROM node:slim
 
 WORKDIR /app
 COPY . .  
+WORKDIR /backend
 RUN npm install 
 EXPOSE 8000 
 CMD ["node","server.js"] 
