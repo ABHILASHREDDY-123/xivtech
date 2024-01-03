@@ -12,10 +12,12 @@ appRouter.post("/", async (req, res) => {
   let resp = {
     weather: {}
   };
+  console.log(req.body);
   await Promise.all(req.body.city.map(async (e)=>{
       const resp1 = await axios.get(
         `https://api.openweathermap.org/data/2.5/weather?q=${e}&units=metric&appid=${KEY}`
       );
+      
      resp.weather[e]=(resp1.data.main.temp)+"C";
    })
   );
